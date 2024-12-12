@@ -16,7 +16,10 @@ pod_range_name            = "dev-k8s-pod-range"
 pod_ip_cidr_range         = "10.1.0.0/16"
 service_range_name        = "dev-k8s-service-range"
 service_ip_cidr_range     = "10.2.0.0/20"
+ip_cidr_range             = "10.0.0.0/16"
 # network_self_link         = "projects/my-project/global/networks/my-network"
+
+project_id                = "aesthetic-site-443805-a0"
 
 # For NAT
 nat_name                       = "dev-nat"
@@ -24,7 +27,7 @@ source_subnetwork_ip_ranges_to_nat = ["ALL_IP_RANGES"]
 source_ip_ranges_to_nat        = ["ALL_IP_RANGES"]
 
 # ROUTE
-router_name = "dev-router"
+router_name = "my-router"
 network     = "vpc-network-id-from-vpc-module"
 
 account_id   = "kubernetes-sa"
@@ -34,7 +37,7 @@ general_node_pool_name = "general-node-pool"
 spot_node_pool_name    = "spot-node-pool"
 
 # CLUSTER
-cluster_name  = "primary-cluster"
+cluster_name  = "my-cluster"
 general_node_count = 1
 spot_min_node_count = 0
 spot_max_node_count = 5

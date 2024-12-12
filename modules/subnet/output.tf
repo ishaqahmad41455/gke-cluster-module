@@ -17,3 +17,7 @@ output "network_link" {
   description = "The self-link of the network this subnet belongs to."
   value       = google_compute_subnetwork.subnet.network
 }
+
+output "subnet_id" {
+  value = google_compute_subnetwork.subnet.id
+}

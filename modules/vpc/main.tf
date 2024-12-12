@@ -10,6 +10,7 @@ resource "google_project_service" "container" {
 resource "google_compute_network" "vpc" {
   name                      = var.vpc_name
   routing_mode              = var.routing_mode
+  # description             = "VPC network"
   auto_create_subnetworks   = var.auto_create_subnetworks
   mtu                       = var.mtu
   delete_default_routes_on_create = var.delete_default_routes_on_create

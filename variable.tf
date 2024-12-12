@@ -89,16 +89,19 @@ variable "project_id" {
 variable "general_node_pool_name" {
   description = "General node pool name"
   type        = string
+  default = "general-node-pool"
 }
 
 variable "spot_node_pool_name" {
   description = "Spot node pool name"
   type        = string
+  default = "spot-node-pool"
 }
 
 variable "cluster_name" {
   description = "Cluster name for the node pools"
   type        = string
+  default = "my-cluster"
 }
 
 variable "general_node_count" {
@@ -128,12 +131,14 @@ variable "spot_max_node_count" {
 variable "spot_machine_type" {
   description = "Machine type for spot node pool"
   type        = string
+  default     = "ec2-small"
 }
 
 
 variable "location" {
   description = "Location of the cluster (zone or region)"
   type        = string
+  default     = "us-central1-a"
 }
 
 variable "node_locations" {
@@ -145,11 +150,13 @@ variable "node_locations" {
 variable "network" {
   description = "VPC network for the GKE cluster"
   type        = string
+  default     = "default"
 }
 
 variable "subnetwork" {
   description = "Subnetwork for the GKE cluster"
   type        = string
+  default     = "default-subnet"
 }
 
 variable "logging_service" {
@@ -161,21 +168,25 @@ variable "logging_service" {
 variable "networking_mode" {
   description = "Networking mode for the cluster (VPC_NATIVE)"
   type        = string
+  default     = "VPC_NATIVE"
 }
 
 variable "workload_pool" {
   description = "Workload Identity Pool for GKE"
   type        = string
+  default     = "my-workload-pool"
 }
 
 variable "cluster_secondary_range_name" {
   description = "Secondary range for the cluster"
   type        = string
+  default     = "my-cluster-secondary-range"
 }
 
 variable "services_secondary_range_name" {
   description = "Secondary range for the services"
   type        = string
+  default     = "my-services-secondary-range"
 }
 
 variable "enable_private_nodes" {
@@ -211,6 +222,7 @@ variable "deletion_protection" {
 variable "firewall_name" {
   description = "Name of the firewall rule"
   type        = string
+  default = "my-firewall"
 }
 
 
@@ -236,7 +248,7 @@ variable "source_ranges" {
 variable "router_name" {
   description = "The name of the router"
   type        = string
-  default     = "router"  # Optional default value, adjust as needed
+  default     = "my-router"  # Optional default value, adjust as needed
 }
 
 variable "nat_name" {
@@ -249,7 +261,7 @@ variable "nat_name" {
 variable "source_subnetwork_ip_ranges_to_nat" {
   description = "The subnetwork IP ranges to NAT"
   type        = string
-  # default     = ["ALL_IP_RANGES"]
+  default     = "ALL_SUBNETWORKS"
 }
 
 variable "source_ip_ranges_to_nat" {
@@ -268,10 +280,32 @@ variable "container_service_enabled" {
 variable "subnet_ip_range" {
   description = "The IP range for the subnet"
   type        = string
+  default     = "10.0.0.0/24"
 }
 
 
 variable "network_self_link" {
   description = "The self-link of the network"
   type        = string
+  default     = "projects/aesthetic-site-443805/global/networks/default"
+}
+
+variable "account_id" {
+  description = "The account ID for the service account."
+  type        = string
+  default = "github-action"
+}
+
+variable "display_name" {
+  description = "The display name for the service account."
+  type        = string
+  default     = "My Service Account"
+}
+
+
+
+variable "machine_type" {
+  description = "The machine type for the cluster nodes"
+  type        = string
+  default     = "e2-medium"
 }

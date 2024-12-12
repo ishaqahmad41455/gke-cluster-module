@@ -1,3 +1,10 @@
+resource "google_project_service" "compute" {
+  project = var.project_id  # Make sure to pass the project ID
+
+  service = "compute.googleapis.com"
+}
+
+
 resource "google_compute_address" "nat" {
   name          = var.nat_name
   region        = var.region

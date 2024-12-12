@@ -1,34 +1,3 @@
-resource "google_service_account" "kubernetes" {
-    account_id = "kubernetes-sa"
-    display_name = "Kubernetes Service Account"
-}
-
-resource "google_container_node_pool" "general" {
-  depends_on = [google_container_cluster.primary]
-  name = "general-node-pool"
-  cluster = google_container_cluster.primary.name
-  node_count = 1
-
-  management {
-    auto_repair = true
-    auto_upgrade = true
-  }
-
-  node_config {
-    preemptible = false
-    machine_type = "ec2-small"
-
-    labels = {
-      role = "general"
-    }
-
-    service_account = google_service_account.kubernetes.email
-    oauth_scopes = [
-        "https://www.googleapis.com/auth/cloud-platform"
-    ]
-  }
-}
-
 resource "google_container_node_pool" "node_pool" {
   depends_on = [google_container_cluster.primary]
   name       = var.pool_name
